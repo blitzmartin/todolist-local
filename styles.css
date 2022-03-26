@@ -70,7 +70,8 @@ form button:hover {
 
 .todo-list {
     list-style: none;
-    width: 100%;  /* I need to delete bullets and to make long item dark rect */
+    width: 100%;
+    /* I need to delete bullets and to make long item dark rect */
 }
 
 .todo {
@@ -90,14 +91,27 @@ form button:hover {
     font-size: 1.5rem;
 }
 
-input[type=checkbox]{
+input[type=checkbox] {
     margin-right: 1rem;
 }
 
-input[type=checkbox]:checked{
+input[type=checkbox]:checked {
     filter: invert(100%) hue-rotate(18deg) brightness(1.5);
 }
 
 input[type=checkbox]:checked~span {
     text-decoration: line-through;
+}
+
+@media (max-width: 700px) {
+    form button {
+        width: auto;
+    }
+
+    form input,
+    form button {
+        font-size: 2rem;
+        padding: 0.3rem;
+    }
+
 }
