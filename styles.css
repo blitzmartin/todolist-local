@@ -118,5 +118,9 @@ input[type=checkbox]:checked~span {
         font-size: 2rem;
         padding: 0.3rem;
     }
+    h1 {
+        font-size: 2rem;
+        margin: 1.5rem 0;
+    }
 
 }
