@@ -8,7 +8,7 @@ const todoList = document.querySelector('.todo-list');  // the list (ul) that's 
 
 //EVENT LISTENERS
 
-todoButton.addEventListener('click', addTodo);  //adds event listener to + button
+todoButton.addEventListener('click', addTodo);  //adds event listener to + button and executes function
 
 
 
@@ -21,19 +21,20 @@ function addTodo(event) {  //when button is clicked do this things
 
     if (todoInput.value.length > 0) {       // the function only happens if input is not empty
 
-        //Create label that will contain input checkbox and span-text
-        const itemLabel = document.createElement('label');
-        itemLabel.setAttribute("for", "newItem");  //new attribute for=newItem inside label tag
-
         //Create input checkbox
         const checkbox = document.createElement('input');
         checkbox.setAttribute("type", "checkbox");  //new attribute type=checkbox inside input tag
         checkbox.setAttribute("id", "newItem");  //new attribute id=newItem inside input tag
-        itemLabel.appendChild(checkbox);  //append input checkbox to label
 
         //Create span to receive input text
         const spanText = document.createElement('span');
         spanText.innerHTML = todoInput.value;
+
+        //Create label that will contain checkbox and span-text
+        const itemLabel = document.createElement('label');
+        itemLabel.setAttribute("for", "newItem");  //new attribute for=newItem inside label tag
+
+        itemLabel.appendChild(checkbox);  //append input checkbox to label
         itemLabel.appendChild(spanText); //append span with text to label (after checkbox)
 
         //Create new Li element
@@ -43,10 +44,8 @@ function addTodo(event) {  //when button is clicked do this things
 
         //Create new ToDo div, it will contain a new list item
         const listDiv = document.createElement('div'); //create a new div
-        listDiv.classList.add('todo'); //style div
-
-        //Put the new li inside new div
-        listDiv.appendChild(listItem);
+        listDiv.classList.add('todo'); //style div   
+        listDiv.appendChild(listItem);  //Put the new li inside new div
 
         //Put the div inside the big unordered list container
         todoList.appendChild(listDiv);
