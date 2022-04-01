@@ -3,7 +3,7 @@
 const todoInput = document.querySelector('.todo-input'); // the input field
 const todoButton = document.querySelector('.todo-button'); // the + button
 const todoList = document.querySelector('.todo-list');  // the list (ul) that's initially empty
-
+const itemBtnAll = document.querySelectorAll('.listBtn');
 
 
 //EVENT LISTENERS
@@ -33,9 +33,14 @@ function addTodo(event) {  //when button is clicked do this things
         //Create label that will contain checkbox and span-text
         const itemLabel = document.createElement('label');
         itemLabel.setAttribute("for", "newItem");  //new attribute for=newItem inside label tag
+        
+        const itemBtn = document.createElement('i');
+        itemBtn.setAttribute("class","fa-solid fa-trash-can");
+        itemBtn.setAttribute("id","itemBtn");
 
         itemLabel.appendChild(checkbox);  //append input checkbox to label
         itemLabel.appendChild(spanText); //append span with text to label (after checkbox)
+        itemLabel.appendChild(itemBtn);
 
         //Create new Li element
         const listItem = document.createElement('li');  //create a new list item
@@ -52,6 +57,14 @@ function addTodo(event) {  //when button is clicked do this things
 
         //Clear input field
         todoInput.value = "";
+
+        itemBtn.addEventListener('click', supressTask);
+
     }
 
+
+}
+
+function supressTask(event) {
+    this.parentElement.parentElement.parentElement.remove();
 }
